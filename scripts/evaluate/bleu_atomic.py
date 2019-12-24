@@ -1,8 +1,6 @@
 import os
 import sys
 
-sys.path.append(os.getcwd())
-
 from nltk import bleu
 from nltk.translate.bleu_score import SmoothingFunction
 from tqdm import tqdm
@@ -15,6 +13,8 @@ from comet.utils.utils import DD
 from comet.utils import utils as utils
 
 import argparse
+
+sys.path.append(os.getcwd())
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--n", type=int, default=2)
