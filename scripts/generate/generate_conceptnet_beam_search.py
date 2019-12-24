@@ -1,21 +1,17 @@
 import os
-import time
 import sys
 import argparse
 sys.path.append(os.getcwd())
 import torch
 
-import src.train.atomic_train as train
-import src.models.models as models
-import src.data.data as data
-import utils.utils as utils
-import src.train.utils as train_utils
-import src.data.config as cfg
+import comet.models.models as models
+import comet.data.data as data
+from comet.utils import utils as utils
+import comet.data.config as cfg
 
-from src.data.utils import TextEncoder
-from src.train.opt import OpenAIAdam
+from comet.data.utils import TextEncoder
 
-import src.models.utils as model_utils
+import comet.models.utils as model_utils
 from tqdm import tqdm
 import torch.nn.functional as F
 import numpy as np
@@ -63,8 +59,10 @@ opt.train.dynamic.epoch = 0
 
 print("Loading Data")
 
+if "maxr" not in opt.data.keys():
+    opt.data.maxr = 5 if opt.data.rel == "language" else 1
 path = "data/conceptnet/processed/generation/{}.pickle".format(
-        utils.make_name_string(opt.data))
+    utils.make_name_string(opt.data))
 
 data_loader = data.make_data_loader(opt)
 loaded = data_loader.load_data(path)

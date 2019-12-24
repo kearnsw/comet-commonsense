@@ -4,14 +4,12 @@ import sys
 sys.path.append(os.getcwd())
 
 import torch
-import src.data.conceptnet as cdata
-import src.data.data as data
+import comet.data.conceptnet as cdata
+import comet.data.data as data
 
-from utils.utils import DD
-import utils.utils as utils
-import random
-from src.data.utils import TextEncoder
-from tqdm import tqdm
+from comet.utils.utils import DD
+from comet.utils import utils as utils
+from comet.data.utils import TextEncoder
 
 opt = DD()
 opt.dataset = "conceptnet"

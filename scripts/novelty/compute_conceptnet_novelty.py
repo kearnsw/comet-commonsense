@@ -5,7 +5,7 @@ import argparse
 
 sys.path.append(os.getcwd())
 
-import src.data.conceptnet as cdata
+import comet.data.conceptnet as cdata
 
 combine_into_words = {j:i for i, j in cdata.split_into_words.items()}
 

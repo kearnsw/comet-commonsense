@@ -1,23 +1,22 @@
 import os
-import time
 import sys
 
 sys.path.append(os.getcwd())
 
-import src.data.config as cfg
+import comet.data.config as cfg
 
 cfg.device = 0
 
 import torch
 import argparse
 
-import src.data.data as data
-import src.data.atomic as adata
-import src.data.config as cfg
-import src.models.models as models
-import src.evaluate.atomic_evaluate as evaluate
-import utils.utils as utils
-from src.data.utils import TextEncoder
+import comet.data.data as data
+import comet.data.atomic as adata
+import comet.data.config as cfg
+import comet.models.models as models
+import comet.evaluate.atomic_evaluate as evaluate
+from comet.utils import utils as utils
+from comet.data.utils import TextEncoder
 
 torch.cuda.set_device(cfg.device)
 
