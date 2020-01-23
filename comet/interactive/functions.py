@@ -122,7 +122,8 @@ def get_atomic_sequence(input_event, model, sampler, data_loader, text_encoder, 
                 data_loader.max_effect -
                 data.atomic_data.num_delimiter_tokens["category"])
 
-        sequence_all['beams'] = sampling_result["beams"]
+        for k, v in sampling_result.items():
+            sequence_all[k] = v
 
         print_atomic_sequence(sequence_all)
 
